@@ -6,6 +6,8 @@ board = [".", ".", ".",
 
 current_player = "x"
 game_still_going = True
+winner = None
+
 
 def display_board():
   print("\n")
@@ -21,10 +23,17 @@ def play_game():
     who_won_game()
     flip_player()
 
-
+  if winner == 'x' or winner == 'O':
+    print(winner + " Won.")
+  elif winner == None:
+    print("Match Tie, Try Again . . . . . ")
+    
 
 def current_player_input():
   global current_player
+  global winner
+  
+  print(current_player + "'s Input.")
   user_input = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   player_input = input("Please input your poisiton(1-9): ")
 
@@ -39,26 +48,27 @@ def current_player_input():
     else:
       print("Your Input Make Vaiolate for Tic Tac Tao, Please Input Again.. . . .")
   board[player_input] = current_player
+  match_tie()
+
   display_board()
 
 
-
 def who_won_game():
+  global winner
   row_winner = check_rows()
   columns_winner = chck_columns()
   diagonal_winner = check_diagonal()
 
+  
   if row_winner:
-    print(row_winner + " win.")
+    winner = row_winner
   elif columns_winner:
-    print(columns_winner + " win.")
+    winner = columns_winner
   elif diagonal_winner:
-    print(diagonal_winner + " win.")
+    winner = diagonal_winner
   else:
     None
-
-
-
+  
 
 def check_rows():
 
@@ -114,6 +124,7 @@ def check_diagonal():
   else:
     return None
   
+  
 def flip_player():
   global current_player
 
@@ -123,5 +134,14 @@ def flip_player():
     current_player = "x"
   else:
     return None
+
+def match_tie():
+  global game_still_going
+  global board
+  if "." not in board:
+    game_still_going = False
+  else:
+    None
+
 
 play_game()
