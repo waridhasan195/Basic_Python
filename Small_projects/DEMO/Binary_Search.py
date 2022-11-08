@@ -30,7 +30,7 @@ def Search_Function(Array, Value, length, min_Value):
 
 if __name__ == '__main__':
 
-    Number = int(input("How many numbers are you input in array ?\n"))
+    Number = int(input("How many numbers are you input in array ? Please Input That: \n"))
     Array = []
     
     for array_value in range(Number):
