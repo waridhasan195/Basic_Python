@@ -41,7 +41,7 @@ if __name__ == '__main__':
     
 
     if len(Array) <= 1 :
-        print('Array Empty or contain only 1 Value')
+        print('Your array Empty or contain only 1 Value')
     else:
         Value = int(input("what value are you search . . . . "))
         Array_length = len(Array) -1
