@@ -46,7 +46,7 @@ def current_player_input():
     if board[player_input] == '.':
       user_input_validity = False
     else:
-      print("Your Input Make Vaiolate for Tic Tac Tao, Please Input Again.. . . .")
+      print("Your Input Make Vaiolate for Tic Tac Tao, Please Input Again.. . . . . . ")
   board[player_input] = current_player
   match_tie()
 
